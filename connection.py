@@ -10,3 +10,7 @@ class QdrantStreamlitConnection(ExperimentalBaseConnection[QdrantClient]):
         else:
             db = self._secrets['database']
         return QdrantClient(url=db, **kwargs)
+
+    @property
+    def cursor(self) -> QdrantClient:
+        return self._instance
